@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Craft Your Climb - Business Leadership Coaching</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-blue: #2C3E50;
+            --warm-brown: #A0826D;
+            --accent-red: #C0392B;
+            --light-gray: #ECF0F1;
+            --white: #FFFFFF;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--primary-blue);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: rgba(44, 62, 80, 0.95);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--warm-brown);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--warm-brown);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)), url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding-top: 80px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+        
+        .hero-emphasis {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            font-style: italic;
+            color: var(--warm-brown);
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-red);
+            color: var(--white);
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            border: 2px solid var(--accent-red);
+        }
+        
+        .cta-button:hover {
+            background-color: transparent;
+            color: var(--accent-red);
+        }
+        
+        /* Approach Section */
+        .approach {
+            padding: 100px 0;
+            background-color: var(--light-gray);
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            color: var(--primary-blue);
+        }
+        
+        .approach-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .approach-item {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .approach-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .approach-icon {
+            width: 80px;
+            height: 80px;
+            background-color: var(--primary-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--white);
+            font-size: 2rem;
+        }
+        
+        .approach-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-blue);
+        }
+        
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background-color: var(--warm-brown);
+            color: var(--white);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-image {
+            flex: 1;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about h2 {
+            color: var(--white);
+            margin-bottom: 30px;
+        }
+        
+        .about p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .about-highlight {
+            color: var(--accent-red);
+            font-weight: 600;
+        }
+        
+        /* Book Section */
+        .book {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+        
+        .book-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .book-image {
+            flex: 1;
+        }
+        
+        .book-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .book-text {
+            flex: 1;
+        }
+        
+        .book-title {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--primary-blue);
+        }
+        
+        .book-subtitle {
+            font-style: italic;
+            color: var(--warm-brown);
+            margin-bottom: 30px;
+            font-size: 1.2rem;
+        }
+        
+        .book-form {
+            margin-top: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1rem;
+        }
+        
+        .form-button {
+            background-color: var(--warm-brown);
+            color: var(--white);
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .form-button:hover {
+            background-color: var(--primary-blue);
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            padding: 100px 0;
+            background-color: var(--light-gray);
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .testimonial-text::before {
+            content: """;
+            position: absolute;
+            left: 0;
+            top: -10px;
+            font-size: 3rem;
+            color: var(--warm-brown);
+            font-family: Georgia, serif;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            color: var(--warm-brown);
+            font-size: 0.9rem;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background-color: var(--primary-blue);
+            color: var(--white);
+        }
+        
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .contact-form {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 10px;
+        }
+        
+        .contact-form h3 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+        }
+        
+        .contact-form .form-group input,
+        .contact-form .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            color: var(--white);
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+        
+        .contact-form .form-group input::placeholder,
+        .contact-form .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .contact-form .form-button {
+            background-color: var(--accent-red);
+            border: none;
+        }
+        
+        .contact-form .form-button:hover {
+            background-color: var(--warm-brown);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: rgba(44, 62, 80, 0.95);
+            padding: 50px 0;
+            text-align: center;
+            color: var(--white);
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo .logo-icon {
+            margin-right: 10px;
+        }
+        
+        .footer-logo .logo-text {
+            font-size: 1.8rem;
+        }
+        
+        .footer-text {
+            margin-bottom: 20px;
+            color: var(--warm-brown);
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        
+        .footer-links li {
+            margin: 0 15px;
+        }
+        
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--warm-brown);
+        }
+        
+        .copyright {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content,
+            .book-content,
+            .contact-content {
+                flex-direction: column;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .footer-links li {
+                margin: 5px 0;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-mountain"></i>
+                </div>
+                <span class="logo-text">Your Craft Your Climb</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#approach">Approach</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#book">The Book</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Your Craft, Your Climb</h1>
+            <p class="hero-subtitle">Business leadership is a craft to be mastered</p>
+            <p class="hero-emphasis">Like any master craftsman, like any great expedition - you don't do it alone</p>
+            <a href="#contact" class="cta-button">Begin Your Journey</a>
+        </div>
+    </section>
+
+    <!-- Approach Section -->
+    <section id="approach" class="approach">
+        <div class="container">
+            <h2 class="section-title">Mastering Your Craft Means Addressing All Parts of the Journey</h2>
+            <div class="approach-grid">
+                <div class="approach-item">
+                    <div class="approach-icon">
+                        <i class="fas fa-flag"></i>
+                    </div>
+                    <h3>Destination</h3>
+                    <p>Defining your vision and setting clear goals for your business expedition</p>
+                </div>
+                <div class="approach-item">
+                    <div class="approach-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Crew</h3>
+                    <p>Building and developing the right team to support your journey</p>
+                </div>
+                <div class="approach-item">
+                    <div class="approach-icon">
+                        <i class="fas fa-compass"></i>
+                    </div>
+                    <h3>Leader</h3>
+                    <p>Developing your leadership skills to navigate challenges effectively</p>
+                </div>
+                <div class="approach-item">
+                    <div class="approach-icon">
+                        <i class="fas fa-route"></i>
+                    </div>
+                    <h3>Expedition</h3>
+                    <p>Executing your strategy with precision and adapting to changing conditions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Zack Tomlin">
+                </div>
+                <div class="about-text">
+                    <h2>About Zack Tomlin</h2>
+                    <p>With <span class="about-highlight">12 years running my own business</span>, I now work with other business leaders on their journey to mastery.</p>
+                    <p>My <span class="about-highlight">structural advantage</span> is being outside the whirlwind of day-to-day operations, spending 100% of my time thinking about how to make businesses better.</p>
+                    <p><span class="about-highlight">Core belief:</span> Your craft matters. The work we do, and how well we do it, matters.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Book Section -->
+    <section id="book" class="book">
+        <div class="container">
+            <div class="book-content">
+                <div class="book-image">
+                    <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Craft: The Business Leader's Journey">
+                </div>
+                <div class="book-text">
+                    <h2 class="section-title">The Book</h2>
+                    <h3 class="book-title">Craft: The Business Leader's Journey</h3>
+                    <p class="book-subtitle">"A guide for those mastering the craft of building an exceptional business"</p>
+                    <p>This book does the heavy lifting on demonstrating depth of thought. It explores how business leadership is a craft to be mastered, and how that journey parallels building a great business.</p>
+                    <div class="book-form">
+                        <h3>Request Your Free Copy</h3>
+                        <form>
+                            <div class="form-group">
+                                <input type="text" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" placeholder="Your Email" required>
+                            </div>
+                            <button type="submit" class="form-button">Request Free Copy</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Leaders Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">Their guidance transformed our company. Truly exceptional.</p>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Alex K" class="author-image">
+                        <div class="author-info">
+                            <h4>Alex K</h4>
+                            <p>CEO of Innovate Corp</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">Zack helped us see our business from a completely new perspective. The results speak for themselves.</p>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah M" class="author-image">
+                        <div class="author-info">
+                            <h4>Sarah M</h4>
+                            <p>Founder of Bright Ideas</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">The craft approach changed how we think about leadership. Practical, insightful, and transformative.</p>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="David L" class="author-image">
+                        <div class="author-info">
+                            <h4>David L</h4>
+                            <p>Director at Summit Solutions</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Let's Discuss Your Journey</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>zack@yourcraftyourclimb.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>(555) 123-4567</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-linkedin"></i>
+                        </div>
+                        <div>
+                            <h4>LinkedIn</h4>
+                            <p>linkedin.com/in/zacktomlin</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Schedule a Consultation</h3>
+                    <form>
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Company Name">
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Tell me about your business challenges" rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="form-button">Schedule Consultation</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">
+                <div class="logo-icon">
+                    <i class="fas fa-mountain"></i>
+                </div>
+                <span class="logo-text">Your Craft Your Climb</span>
+            </div>
+            <p class="footer-text">Associated with Pinnacle Business Guides</p>
+            <ul class="footer-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#approach">Approach</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#book">The Book</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <p class="copyright">&copy; 2023 Your Craft Your Climb. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Form submission handling
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your submission! We will contact you shortly.');
+                this.reset();
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.backgroundColor = 'rgba(44, 62, 80, 0.98)';
+            } else {
+                header.style.backgroundColor = 'rgba(44, 62, 80, 0.95)';
+            }
+        });
+    </script>
+</body>
+</html>
